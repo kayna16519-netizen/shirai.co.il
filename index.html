@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>שיר קידן | ניהול אדמיניסטרטיבי חכם</title>
+  <meta name="description" content="הסדר שלי, הצמיחה שלך. ניהול אדמיניסטרטיבי חכם שנותן שליטה בעסק ומפנה זמן לצמיחה." />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* 🎨 Happy-pro palette */
+      --bg0:#070A1A;          /* deep navy */
+      --bg1:#0B0F2B;          /* navy */
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.09);
+      --stroke: rgba(255,255,255,.14);
+
+      --text:#F5F7FF;
+      --muted: rgba(245,247,255,.72);
+
+      --blue:#2D5BFF;
+      --purple:#7C3AED;
+      --pink:#FF3EA5;
+      --mint:#2EF2C6;
+
+      --shadow: 0 18px 40px rgba(0,0,0,.35);
+      --radius: 22px;
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Heebo", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 85% 10%, rgba(255,62,165,.22), transparent 60%),
+        radial-gradient(900px 500px at 15% 5%, rgba(124,58,237,.25), transparent 60%),
+        radial-gradient(900px 600px at 35% 95%, rgba(45,91,255,.22), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      padding: 8px 0 18px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      font-weight:900; letter-spacing:.2px;
+    }
+    .logo{
+      width:44px; height:44px; border-radius:16px;
+      background: linear-gradient(135deg, var(--blue), var(--purple) 55%, var(--pink));
+      box-shadow: 0 18px 40px rgba(124,58,237,.25);
+      position:relative;
+      overflow:hidden;
+    }
+    .logo:before{
+      content:"";
+      position:absolute; inset:-40%;
+      background: conic-gradient(from 120deg, rgba(255,255,255,.0), rgba(255,255,255,.32), rgba(255,255,255,.0));
+      animation: spin 6.5s linear infinite;
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:10px;
+      border-radius:12px;
+      background: rgba(0,0,0,.14);
+      border: 1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(8px);
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .brand small{display:block; font-weight:700; color:var(--muted); margin-top:2px}
+    .nav-actions{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+    .btn{
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 12px 16px;
+      font-weight: 900;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex; align-items:center; gap:10px;
+      transition: transform .18s ease, filter .18s ease, background .18s ease, border-color .18s ease;
+      user-select:none;
+      will-change: transform;
+    }
+    .btn:hover{transform: translateY(-2px); filter:brightness(1.05)}
+    .btn:active{transform: translateY(0px) scale(.99)}
+    .btn.primary{
+      background: linear-gradient(135deg, var(--blue), var(--purple) 55%, var(--pink));
+      box-shadow: 0 18px 40px rgba(45,91,255,.20);
+    }
+    .btn.ghost{
+      background: rgba(255,255,255,.04);
+      border-color: rgba(255,255,255,.16);
+      color: var(--text);
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      align-items:stretch;
+      padding: 10px 0 26px;
+    }
+    @media (max-width: 940px){
+      .hero{grid-template-columns:1fr}
+    }
+
+    .card{
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--panel), rgba(255,255,255,.03));
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-copy{padding:28px 26px; position:relative; overflow:hidden}
+    .hero-copy:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(440px 220px at 90% 12%, rgba(255,62,165,.22), transparent 60%),
+        radial-gradient(380px 200px at 12% 8%, rgba(46,242,198,.16), transparent 60%),
+        linear-gradient(120deg, rgba(255,255,255,.04), rgba(255,255,255,.0));
+      opacity:.9;
+      z-index:0;
+    }
+    .hero-copy > *{position:relative; z-index:1}
+    .pill{
+      display:inline-flex; align-items:center; gap:9px;
+      padding:9px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      font-weight:800;
+      letter-spacing:.2px;
+      box-shadow: 0 12px 26px rgba(0,0,0,.35);
+    }
+    .pill .dot{
+      width:10px; height:10px; border-radius:50%;
+      background: linear-gradient(135deg, var(--mint), var(--blue));
+      box-shadow: 0 0 0 7px rgba(46,242,198,.20);
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(32px, 4.2vw, 48px);
+      letter-spacing:-.3px;
+    }
+    .sub{
+      margin:0 0 16px;
+      color:var(--muted);
+      font-size: 1.06rem;
+      max-width: 56ch;
+    }
+    .points{
+      display:grid; gap:10px;
+      margin:18px 0 20px;
+    }
+    .point{
+      display:flex; align-items:flex-start; gap:10px;
+      font-weight:700;
+      color:var(--text);
+    }
+    .check{
+      width:18px; height:18px; border-radius:8px;
+      border:1px solid rgba(46,242,198,.55);
+      background: rgba(46,242,198,.12);
+      position:relative; margin-top:2px;
+    }
+    .check:after{
+      content:"";
+      position:absolute; width:7px; height:4px;
+      border-right:2px solid var(--mint);
+      border-bottom:2px solid var(--mint);
+      transform: rotate(35deg);
+      right:4px; top:4px;
+    }
+    .hero-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
+    .note{color:var(--muted); font-weight:700; margin-top:12px}
+
+    .form-card{padding:22px; position:relative; overflow:hidden}
+    .form-card:before{
+      content:"";
+      position:absolute; inset:-1px;
+      background:
+        radial-gradient(300px 160px at 20% 10%, rgba(45,91,255,.28), transparent 60%),
+        radial-gradient(300px 160px at 90% 20%, rgba(255,62,165,.25), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.0));
+      z-index:0;
+    }
+    .form-card > *{position:relative; z-index:1}
+    .form-title{margin:0 0 6px; font-size:1.15rem; font-weight:800}
+    .form-sub{margin:0 0 16px; color:var(--muted); font-weight:700}
+    form{display:grid; gap:12px}
+    label{font-weight:800; font-size:.96rem; color:var(--text)}
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.05);
+      color:var(--text);
+      font: inherit;
+      outline:none;
+    }
+    input::placeholder, textarea::placeholder{color:rgba(245,247,255,.6)}
+    input:focus, textarea:focus{
+      border-color: rgba(46,242,198,.45);
+      box-shadow: 0 0 0 4px rgba(46,242,198,.12);
+    }
+    textarea{min-height:96px; resize:vertical}
+    .inline{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    @media (max-width: 560px){.inline{grid-template-columns:1fr}}
+    .fineprint{color:var(--muted); font-size:.9rem; margin:4px 0 0; font-weight:700}
+
+    .badges{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin:12px 0 0;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:9px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.05);
+      font-weight:800;
+      color:var(--muted);
+    }
+    .badge .tiny{width:8px; height:8px; border-radius:50%; background:var(--mint)}
+
+    .sections{display:grid; gap:18px; padding: 6px 0 40px}
+    .section{padding:24px 22px; border:1px solid var(--stroke); border-radius:var(--radius); background:var(--panel2); box-shadow:var(--shadow)}
+    h2{margin:0 0 10px; font-size:1.25rem}
+    p{margin:0 0 10px; color:var(--muted); font-weight:700}
+    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+    @media (max-width: 880px){.grid2{grid-template-columns:1fr}}
+    .list{margin:0; padding:0 18px 0 0; color:var(--text); font-weight:750}
+    .list li{margin:8px 0}
+    .cta-strip{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      padding:16px 18px;
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:var(--radius);
+      background: linear-gradient(120deg, rgba(45,91,255,.14), rgba(124,58,237,.14), rgba(255,62,165,.14));
+      box-shadow: var(--shadow);
+    }
+    @media (max-width: 820px){.cta-strip{flex-direction:column; align-items:stretch}}
+    .chips{
+      display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;
+    }
+    .chip{
+      padding:8px 12px; border-radius:12px; background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      font-weight:750; color:var(--text);
+    }
+    .metrics{display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:10px; margin-top:10px}
+    .metric{padding:12px; border-radius:14px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.05); font-weight:800}
+    .metric span{display:block; color:var(--muted); font-weight:700; margin-top:4px}
+    .footer{padding: 28px 0 46px; color:var(--muted); font-weight:750; text-align:center; font-size:.95rem}
+    .toast{display:none; position:fixed; inset:auto 18px 18px 18px; max-width:520px; margin:0 auto; background:#0c1125; color:#fff; border-radius:16px; padding:12px 14px; box-shadow:0 16px 32px rgba(0,0,0,.38)}
+    .toast.show{display:block}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <div class="brand" aria-label="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          שיר קידן
+          <small>ניהול אדמיניסטרטיבי חכם</small>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <a class="btn ghost" href="#how">איך זה עובד</a>
+        <a class="btn primary" href="#form">לתיאום שיחה</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="card hero-copy">
+          <div class="pill"><span class="dot"></span> ניהול שעובד, לא רק תזכורות</div>
+          <h1>הסדר שלי, הצמיחה שלך.</h1>
+          <p class="sub">
+            ניהול אדמיניסטרטיבי חכם שמחזיק את היומן, הלידים והגבייה – כדי שאת תהיי פנויה לצמיחה.
+          </p>
+
+          <div class="points">
+            <div class="point"><span class="check"></span> יומן, פולואפים וגבייה מסודרים בלי פינג-פונג</div>
+            <div class="point"><span class="check"></span> לידים לא נופלים – מעקב וזמני תגובה קבועים</div>
+            <div class="point"><span class="check"></span> החזקה מקצה לקצה במקום “לרדוף” אחרי משימות</div>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#form">לתיאום שיחת התאמה</a>
+            <a class="btn ghost" href="#fit">למי זה מתאים</a>
+          </div>
+          <div class="note">שיחה קצרה, בלי מחויבות – רק לראות אם זה מתאים.</div>
+
+          <div class="badges">
+            <div class="badge"><span class="tiny"></span> ניהול לידים ופולואפים</div>
+            <div class="badge"><span class="tiny"></span> יומן ותיאומים</div>
+            <div class="badge"><span class="tiny"></span> גבייה ובקרה</div>
+          </div>
+        </div>
+
+        <aside class="card form-card" id="form" aria-label="lead form">
+          <h3 class="form-title">בואי נדבר</h3>
+          <p class="form-sub">השאירי פרטים ואחזור אלייך לשיחת התאמה קצרה.</p>
+
+          <form id="leadForm" action="#" method="post" novalidate>
+            <div class="inline">
+              <div>
+                <label for="name">שם מלא</label>
+                <input id="name" name="name" type="text" placeholder="לדוגמה: רוני כהן" autocomplete="name" required />
+              </div>
+              <div>
+                <label for="phone">טלפון</label>
+                <input id="phone" name="phone" type="tel" placeholder="050-0000000" autocomplete="tel" required />
+              </div>
+            </div>
+
+            <div>
+              <label for="email">אימייל</label>
+              <input id="email" name="email" type="email" placeholder="name@email.com" autocomplete="email" />
+            </div>
+
+            <div>
+              <label for="need">מה הכי תקוע כרגע?</label>
+              <textarea id="need" name="need" placeholder="לידים, פולואפים, גבייה, יומן, סדר כללי..."></textarea>
+            </div>
+
+            <button class="btn primary" type="submit">שלחי פרטים</button>
+            <div class="fineprint">
+              לחיצה על “שלחי פרטים” מאשרת יצירת קשר. <b>אין ספאם.</b>
+            </div>
+          </form>
+        </aside>
+      </section>
+
+      <div class="sections">
+        <section class="section" id="how">
+          <h2>איך זה נראה בפועל</h2>
+          <p>ניהול אקטיבי, עקבי ובתיעדוף גבוה. לא רק “לסגור משימות” – אלא לדאוג שהמערכת שלך רצה.</p>
+          <div class="grid2">
+            <div>
+              <ul class="list">
+                <li>לידים נכנסים מטופלים בזמן קבוע</li>
+                <li>פולואפים ביומן ולא בזיכרון</li>
+                <li>גבייה ובקרה שוטפים</li>
+                <li>שקיפות ודיווחים קצרים אלייך</li>
+              </ul>
+            </div>
+            <div>
+              <div class="metrics">
+                <div class="metric">2 דק׳ מענה <span>לידים חמים לא מתקררים</span></div>
+                <div class="metric">100% פולואפים ביומן <span>בלי פתקיות ווואטסאפים</span></div>
+                <div class="metric">גבייה בזמן <span>תזרים צפוי ושקט נפשי</span></div>
+              </div>
+              <div class="chips">
+                <div class="chip">ניהול יומן</div>
+                <div class="chip">תיאומי פגישות</div>
+                <div class="chip">מעקב גבייה</div>
+                <div class="chip">לידים + CRM</div>
+                <div class="chip">דפי נחיתה</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="services">
+          <h2>מה מנוהל עבורך</h2>
+          <div class="grid2">
+            <ul class="list">
+              <li>יומן ותיאומים + ניהול זמינות</li>
+              <li>טיפול בלידים נכנסים ומסלולי פולואפ</li>
+              <li>שליחת הצעות מחיר ותיאום ציפיות</li>
+              <li>מעקב אחרי משימות קריטיות</li>
+            </ul>
+            <ul class="list">
+              <li>גבייה ותזכורות תשלום</li>
+              <li>תפעול דפי נחיתה וכלים דיגיטליים</li>
+              <li>ריכוז תקשורת ושמירת סדר</li>
+              <li>החזקה מקצה לקצה</li>
+            </ul>
+          </div>
+          <p>אוטומציות מורכבות/הטמעת מערכות אפשרית דרך ספק חיצוני בתמחור נפרד.</p>
+        </section>
+
+        <section class="section" id="fit">
+          <h2>למי זה מתאים</h2>
+          <div class="grid2">
+            <div>
+              <div class="pill" style="margin-bottom:10px"><span class="dot"></span> מתאים אם את</div>
+              <ul class="list">
+                <li>רוצה סדר, בקרה וזמני תגובה קבועים</li>
+                <li>צריכה שותפה שמחזיקה אחריות, לא רק מבצעת</li>
+                <li>מבינה שזמן הוא משאב וצריך לשמור עליו</li>
+              </ul>
+            </div>
+            <div>
+              <div class="pill" style="margin-bottom:10px"><span class="dot" style="box-shadow:0 0 0 7px rgba(255,62,165,.28); background:var(--pink)"></span> פחות מתאים אם</div>
+              <ul class="list">
+                <li>מחפשת משימה חד פעמית בלבד</li>
+                <li>רוצה “לסגור” בלי שיתוף פעולה בסיסי</li>
+                <li>מצפה להטמעת מערכות מורכבות כחלק מהשירות</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="cta-strip" aria-label="final cta">
+          <div>
+            <div style="font-weight:900; font-size:1.05rem">מוכנה לעשות סדר שמייצר תנועה?</div>
+            <div style="color:var(--muted); font-weight:700">בואי נקבע שיחה קצרה ונראה אם זה מתאים.</div>
+          </div>
+          <a class="btn primary" href="#form">לתיאום שיחה</a>
+        </section>
+      </div>
+
+      <div class="footer">
+        © <span id="year"></span> שיר קידן · ניהול אדמיניסטרטיבי חכם ·
+        <span style="color:var(--mint)">ניהול שעובד</span>
+        <br />
+        <span>טלפון: 050-0000000 · אימייל: hello@example.com</span>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // שנה אוטומטית בפוטר
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // דמו שליחת טופס (להחליף באינטגרציה אמיתית)
+    const form = document.getElementById("leadForm");
+    const toast = document.getElementById("toast");
+
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(()=>toast.classList.remove("show"), 3200);
+    }
+
+    form.addEventListener("submit", (e) => {
+      // אם יש action אמיתי, מחקי את השורות הבאות
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if(!name || !phone){
+        showToast("רק שם וטלפון ונמשיך 🙂");
+        return;
+      }
+
+      // כאן אפשר לשלוח ל-Webhook (Make/Zapier) בעזרת fetch
+      // fetch("YOUR_WEBHOOK_URL", { method:"POST", headers:{'Content-Type':'application/json'}, body: JSON.stringify({...}) })
+
+      form.reset();
+      showToast("קיבלתי! אחזור אלייך לשיחת התאמה קצרה.");
+    });
+  </script>
+</body>
+</html>
