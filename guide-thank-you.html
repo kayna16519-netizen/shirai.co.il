@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>המדריך בדרך אלייך! | שיר קידן</title>
+  <meta name="theme-color" content="#0f3b2e" />
+
+  <style>
+    :root{
+      --bg: #f7f3ec;
+      --text: #14202b;
+      --muted: #5b6b79;
+      --line: #e6e0d7;
+      --accent: #0f3b2e;
+      --accent2: #2b4a66;
+      --shadow: 0 10px 30px rgba(20,32,43,.08);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 90% -10%, rgba(43,74,102,.12), transparent 55%),
+                  radial-gradient(900px 500px at 10% 0%, rgba(15,59,46,.10), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+
+    .card{
+      background: rgba(255,255,255,.80);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+      max-width:540px;
+      width:100%;
+      padding:40px 36px;
+      text-align:center;
+    }
+
+    .icon-circle{
+      width:80px; height:80px;
+      border-radius:50%;
+      background: rgba(15,59,46,.1);
+      border:2px solid rgba(15,59,46,.2);
+      display:flex; align-items:center; justify-content:center;
+      margin:0 auto 22px;
+      animation: pop .5s ease;
+    }
+    @keyframes pop{
+      0%{transform:scale(0)}
+      60%{transform:scale(1.15)}
+      100%{transform:scale(1)}
+    }
+    .icon-circle svg{width:36px; height:36px; fill:var(--accent)}
+
+    h1{
+      margin:0 0 12px;
+      font-size:1.8rem;
+      letter-spacing:-.2px;
+    }
+    .sub{
+      color:var(--muted);
+      font-size:1.05rem;
+      font-weight:600;
+      margin:0 0 24px;
+      line-height:1.6;
+    }
+
+    .steps{
+      text-align:right;
+      background: rgba(15,59,46,.04);
+      border:1px solid rgba(15,59,46,.1);
+      border-radius:14px;
+      padding:18px 20px;
+      margin:0 0 24px;
+    }
+    .steps h3{margin:0 0 10px; font-size:1rem}
+    .steps ol{
+      margin:0; padding:0 18px 0 0;
+      font-weight:650;
+      color:var(--text);
+    }
+    .steps li{margin:6px 0}
+    .steps li span{color:var(--muted); font-weight:600}
+
+    .btn{
+      border:1px solid transparent;
+      background: var(--accent);
+      color:#fff;
+      padding:14px 28px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:1.05rem;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex; align-items:center; gap:10px;
+      box-shadow: 0 10px 22px rgba(15,59,46,.18);
+      transition: filter .15s, transform .15s;
+    }
+    .btn:hover{filter:brightness(1.04); transform:translateY(-1px)}
+    .btn.secondary{
+      background: transparent;
+      color: var(--accent);
+      border-color: rgba(15,59,46,.35);
+      box-shadow:none;
+      font-size:1rem;
+      padding:12px 22px;
+    }
+
+    .links{
+      display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
+      margin-top:14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="icon-circle">
+      <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+    </div>
+
+    <h1>המדריך בדרך אלייך!</h1>
+    <p class="sub">
+      תודה שהשארת פרטים. המדריך נשלח אלייך למייל.
+      <br />
+      בדקי גם בתיקיית הספאם למקרה שהוא נחת שם.
+    </p>
+
+    <div class="steps">
+      <h3>מה עכשיו?</h3>
+      <ol>
+        <li>פתחי את תיבת המייל שלך <span>— המדריך מחכה לך</span></li>
+        <li>קראי וישמי את 5 השיטות <span>— הן מעשיות ופשוטות</span></li>
+        <li>רוצה עזרה ביישום? <span>— אפשר לתאם שיחה</span></li>
+      </ol>
+    </div>
+
+    <div class="links">
+      <a class="btn" href="/#form">לתיאום שיחת התאמה</a>
+      <a class="btn secondary" href="/">לאתר הראשי</a>
+    </div>
+  </div>
+</body>
+</html>

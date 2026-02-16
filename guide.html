@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>מדריך חינמי | איך לנהל משימות בעסק בצורה מיטבית | שיר קידן</title>
+  <meta name="description" content="מדריך חינמי לבעלי עסקים: איך לנהל את כל המשימות בצורה מיטבית ויעילה. שיטות מעשיות שאפשר ליישם כבר היום." />
+  <meta name="theme-color" content="#0f3b2e" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="מדריך חינמי | ניהול משימות בעסק בצורה מיטבית" />
+  <meta property="og:description" content="5 שיטות מעשיות שיעזרו לך לנהל את כל המשימות בעסק בלי שדברים ייפלו." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --bg: #f7f3ec;
+      --panel: #ffffff;
+      --text: #14202b;
+      --muted: #5b6b79;
+      --line: #e6e0d7;
+      --accent: #0f3b2e;
+      --accent2: #2b4a66;
+      --shadow: 0 10px 30px rgba(20,32,43,.08);
+      --radius: 18px;
+      --max: 960px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 90% -10%, rgba(43,74,102,.12), transparent 55%),
+                  radial-gradient(900px 500px at 10% 0%, rgba(15,59,46,.10), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+
+    /* Header */
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+      padding:10px 0 22px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      font-weight:700;
+      letter-spacing:.2px;
+      text-decoration:none;
+    }
+    .mark{
+      width:44px; height:44px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(15,59,46,.95), rgba(43,74,102,.85));
+      box-shadow: var(--shadow);
+      position:relative;
+    }
+    .mark:before{
+      content:"";
+      position:absolute; inset:12px 14px 12px 14px;
+      border-radius:10px;
+      border:2px solid rgba(255,255,255,.75);
+    }
+    .brand small{display:block; color:var(--muted); font-weight:600}
+
+    .btn{
+      border:1px solid transparent;
+      background: var(--accent);
+      color:#fff;
+      padding:14px 24px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:1.05rem;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex; align-items:center; gap:10px;
+      box-shadow: 0 10px 22px rgba(15,59,46,.18);
+      transition: filter .15s, transform .15s;
+    }
+    .btn:hover{filter:brightness(1.04); transform:translateY(-1px)}
+    .btn.secondary{
+      background: transparent;
+      color: var(--accent);
+      border-color: rgba(15,59,46,.35);
+      box-shadow:none;
+    }
+    .btn.large{
+      padding:16px 32px;
+      font-size:1.15rem;
+    }
+
+    .card{
+      background: rgba(255,255,255,.75);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    /* Hero */
+    .hero{
+      text-align:center;
+      padding: 40px 0 20px;
+    }
+    .badge{
+      display:inline-flex; gap:10px; align-items:center;
+      font-weight:800;
+      color: var(--accent);
+      background: rgba(15,59,46,.08);
+      border: 1px solid rgba(15,59,46,.18);
+      padding:8px 18px;
+      border-radius:999px;
+      margin-bottom:18px;
+      font-size:.95rem;
+    }
+    .badge-icon{
+      width:20px; height:20px;
+      display:inline-flex; align-items:center; justify-content:center;
+    }
+    .badge-icon svg{width:16px; height:16px; fill:var(--accent)}
+    h1{
+      margin: 0 0 14px;
+      font-size: clamp(28px, 4.5vw, 46px);
+      letter-spacing: -.3px;
+      line-height:1.2;
+    }
+    h1 span{
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+    .hero-sub{
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      margin: 0 auto 28px;
+      max-width: 58ch;
+      font-weight:600;
+    }
+
+    /* Form Section */
+    .form-section{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:24px;
+      align-items:start;
+      padding: 10px 0 30px;
+    }
+    @media (max-width: 820px){
+      .form-section{grid-template-columns:1fr}
+    }
+
+    .form-card{padding:28px}
+    .form-title{
+      margin:0 0 6px; font-size: 1.2rem; font-weight:800;
+    }
+    .form-sub{
+      margin:0 0 18px; color:var(--muted);
+      font-weight:600;
+    }
+    form{display:grid; gap:14px}
+    label{font-weight:700; font-size:.95rem}
+    input{
+      width:100%;
+      padding:13px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      font: inherit;
+      outline:none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    input:focus{
+      border-color: rgba(43,74,102,.45);
+      box-shadow: 0 0 0 4px rgba(43,74,102,.10);
+    }
+    .fineprint{
+      color:var(--muted);
+      font-size:.88rem;
+      margin:4px 0 0;
+      font-weight:600;
+    }
+    .fineprint b{color:var(--text)}
+
+    /* Guide Preview */
+    .preview-card{padding:28px}
+    .preview-card h3{margin:0 0 16px; font-size:1.15rem}
+    .chapter-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:12px;
+    }
+    .chapter-list li{
+      display:flex; gap:12px; align-items:flex-start;
+      font-weight:650;
+    }
+    .chapter-num{
+      width:30px; height:30px;
+      border-radius:10px;
+      background: rgba(15,59,46,.1);
+      border:1px solid rgba(15,59,46,.2);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800;
+      font-size:.85rem;
+      color:var(--accent);
+      flex:0 0 auto;
+    }
+    .chapter-text{padding-top:4px}
+    .chapter-text small{
+      display:block;
+      color:var(--muted);
+      font-weight:600;
+      font-size:.88rem;
+      margin-top:2px;
+    }
+
+    /* Benefits Section */
+    .benefits{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+      padding: 10px 0 30px;
+    }
+    @media (max-width: 820px){
+      .benefits{grid-template-columns:1fr}
+    }
+    .benefit{
+      padding:24px;
+      text-align:center;
+    }
+    .benefit-icon{
+      width:52px; height:52px;
+      border-radius:16px;
+      background: rgba(15,59,46,.08);
+      border:1px solid rgba(15,59,46,.15);
+      display:flex; align-items:center; justify-content:center;
+      margin:0 auto 14px;
+    }
+    .benefit-icon svg{width:24px; height:24px; fill:var(--accent)}
+    .benefit h3{margin:0 0 8px; font-size:1.05rem}
+    .benefit p{margin:0; color:var(--muted); font-weight:600; font-size:.95rem}
+
+    /* Who For Section */
+    .section{padding:28px}
+    h2{margin:0 0 12px; font-size:1.35rem}
+    .audience-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:14px;
+    }
+    @media (max-width: 520px){
+      .audience-grid{grid-template-columns:1fr}
+    }
+    .audience-item{
+      display:flex; gap:10px; align-items:flex-start;
+      font-weight:650;
+    }
+    .check{
+      width:18px; height:18px; border-radius:6px;
+      background: rgba(15,59,46,.12);
+      border:1px solid rgba(15,59,46,.25);
+      position:relative; margin-top:2px; flex:0 0 auto;
+    }
+    .check:after{
+      content:"";
+      position:absolute;
+      width:8px; height:4px;
+      border-right:2px solid var(--accent);
+      border-bottom:2px solid var(--accent);
+      transform: rotate(35deg);
+      right:4px; top:4px;
+    }
+
+    /* Testimonial / Social Proof */
+    .proof{
+      text-align:center;
+      padding:28px;
+      margin:10px 0 20px;
+    }
+    .proof-quote{
+      font-size:1.1rem;
+      font-weight:650;
+      max-width:50ch;
+      margin:0 auto 12px;
+      line-height:1.6;
+    }
+    .proof-author{
+      color:var(--muted);
+      font-weight:700;
+      font-size:.95rem;
+    }
+
+    /* CTA Strip */
+    .cta-strip{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      padding:22px 24px;
+      border-radius: var(--radius);
+      border:1px solid rgba(15,59,46,.18);
+      background: linear-gradient(135deg, rgba(15,59,46,.10), rgba(43,74,102,.08));
+      margin-bottom:30px;
+    }
+    @media (max-width: 820px){
+      .cta-strip{flex-direction:column; align-items:stretch; text-align:center}
+    }
+
+    /* Footer */
+    .footer{
+      padding: 20px 0 50px;
+      color: var(--muted);
+      font-weight:650;
+      text-align:center;
+      font-size:.95rem;
+    }
+
+    /* Toast */
+    .toast{
+      display:none;
+      position:fixed;
+      inset:auto 18px 18px 18px;
+      max-width: 520px;
+      margin:0 auto;
+      background:#0b241c;
+      color:#fff;
+      border-radius: 16px;
+      padding:14px 18px;
+      font-weight:700;
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+      z-index:100;
+    }
+    .toast.show{display:block}
+
+    /* Decorative elements */
+    .decor-dots{
+      position:absolute;
+      width:120px; height:120px;
+      background: radial-gradient(circle, rgba(15,59,46,.08) 1px, transparent 1px);
+      background-size: 12px 12px;
+      pointer-events:none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/" aria-label="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          שיר קידן
+          <small>ניהול אדמיניסטרטיבי חכם</small>
+        </div>
+      </a>
+      <a class="btn secondary" href="/">לאתר הראשי</a>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="badge">
+          <span class="badge-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg>
+          </span>
+          מדריך חינמי לבעלי עסקים
+        </div>
+        <h1>
+          איך לנהל את כל המשימות בעסק
+          <br />
+          <span>בצורה מיטבית ויעילה</span>
+        </h1>
+        <p class="hero-sub">
+          5 שיטות מעשיות שיעזרו לך לעבור מעומס ובלאגן לסדר ושליטה מלאה.
+          מתאים לכל בעלת עסק שמרגישה שדברים נופלים בין הכיסאות.
+        </p>
+        <a class="btn large" href="#download">להורדת המדריך החינמי</a>
+      </section>
+
+      <!-- Benefits -->
+      <section class="benefits">
+        <div class="card benefit">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z"/></svg>
+          </div>
+          <h3>פחות עומס, יותר שליטה</h3>
+          <p>שיטה מוכחת לארגון משימות שמפחיתה עומס מנטלי ומונעת מדברים ליפול.</p>
+        </div>
+        <div class="card benefit">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          </div>
+          <h3>חיסכון בזמן יומיומי</h3>
+          <p>כלים ושיטות שחוסכים שעות בשבוע בניהול המשימות של העסק.</p>
+        </div>
+        <div class="card benefit">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+          </div>
+          <h3>יישום מיידי</h3>
+          <p>טיפים מעשיים שאפשר ליישם כבר היום, בלי כלים יקרים או מורכבים.</p>
+        </div>
+      </section>
+
+      <!-- Form + Preview -->
+      <section class="form-section" id="download">
+        <!-- Guide Contents Preview -->
+        <div class="card preview-card">
+          <h3>מה תמצאי במדריך?</h3>
+          <ul class="chapter-list">
+            <li>
+              <span class="chapter-num">1</span>
+              <div class="chapter-text">
+                למה משימות נופלות בין הכיסאות
+                <small>הסיבה האמיתית שדברים לא מתבצעים (וזה לא מה שחושבים)</small>
+              </div>
+            </li>
+            <li>
+              <span class="chapter-num">2</span>
+              <div class="chapter-text">
+                איך לבנות מערכת משימות שעובדת
+                <small>שיטת 3 הרשימות שמשנה את הכול</small>
+              </div>
+            </li>
+            <li>
+              <span class="chapter-num">3</span>
+              <div class="chapter-text">
+                תעדוף חכם: מה לעשות קודם
+                <small>מטריצת קבלת החלטות שחוסכת שעות כל שבוע</small>
+              </div>
+            </li>
+            <li>
+              <span class="chapter-num">4</span>
+              <div class="chapter-text">
+                הרגלים יומיים של בעלות עסקים מסודרות
+                <small>שגרת 15 דקות שמונעת הצטברות של משימות</small>
+              </div>
+            </li>
+            <li>
+              <span class="chapter-num">5</span>
+              <div class="chapter-text">
+                מתי להפסיק לעשות הכול לבד
+                <small>איך לזהות את הרגע הנכון לקבל עזרה ואיזו עזרה לבחור</small>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Download Form -->
+        <div class="card form-card" id="form">
+          <h3 class="form-title">הורדת המדריך החינמי</h3>
+          <p class="form-sub">השאירי את הפרטים ואשלח לך את המדריך ישירות למייל.</p>
+
+          <form id="guideForm" action="#" method="post" novalidate>
+            <div>
+              <label for="name">שם מלא</label>
+              <input id="name" name="name" type="text" placeholder="לדוגמה: רוני כהן" autocomplete="name" required />
+            </div>
+
+            <div>
+              <label for="email">אימייל</label>
+              <input id="email" name="email" type="email" placeholder="name@email.com" autocomplete="email" required />
+            </div>
+
+            <div>
+              <label for="phone">טלפון (אופציונלי)</label>
+              <input id="phone" name="phone" type="tel" placeholder="050-0000000" autocomplete="tel" />
+            </div>
+
+            <button class="btn large" type="submit" style="width:100%; justify-content:center">
+              שלחי לי את המדריך
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="transform:scaleX(-1)"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+            <div class="fineprint">
+              100% חינמי. <b>ללא ספאם</b> — רק המדריך והתוכן הרלוונטי.
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Who Is This For -->
+      <section class="card section">
+        <h2>למי המדריך הזה מתאים?</h2>
+        <p style="color:var(--muted); font-weight:600; margin-bottom:14px">
+          המדריך נכתב בדיוק בשביל בעלות עסקים שמכירות את התחושה הזו:
+        </p>
+        <div class="audience-grid">
+          <div class="audience-item">
+            <span class="check"></span>
+            יש לך מלא משימות בראש ואין מערכת שמנהלת אותן
+          </div>
+          <div class="audience-item">
+            <span class="check"></span>
+            דברים נופלים בין הכיסאות ולידים מתפספסים
+          </div>
+          <div class="audience-item">
+            <span class="check"></span>
+            את מרגישה שהכול עלייך ואין לך זמן לנשום
+          </div>
+          <div class="audience-item">
+            <span class="check"></span>
+            את יודעת שאפשר אחרת, אבל לא יודעת מאיפה להתחיל
+          </div>
+          <div class="audience-item">
+            <span class="check"></span>
+            את רוצה שהעסק יהיה מסודר בלי לשכור צוות שלם
+          </div>
+          <div class="audience-item">
+            <span class="check"></span>
+            את מחפשת שיטות פשוטות שאפשר ליישם מיד
+          </div>
+        </div>
+      </section>
+
+      <!-- Social Proof -->
+      <div class="card proof">
+        <p class="proof-quote">
+          &ldquo;המדריך הזה נתן לי את הכלים להפסיק לרדוף אחרי משימות ולהתחיל לנהל אותן.
+          תוך שבוע הרגשתי שינוי משמעותי בסדר היום שלי.&rdquo;
+        </p>
+        <div class="proof-author">— בעלת עסק בתחום השירותים</div>
+      </div>
+
+      <!-- Final CTA -->
+      <section class="cta-strip" aria-label="final cta">
+        <div>
+          <div style="font-weight:900; font-size:1.05rem">מוכנה להפסיק לרדוף אחרי משימות?</div>
+          <div style="color:var(--muted); font-weight:650">הורידי את המדריך החינמי והתחילי ליישם כבר היום.</div>
+        </div>
+        <a class="btn" href="#download">להורדת המדריך</a>
+      </section>
+
+      <div class="footer">
+        &copy; <span id="year"></span> שיר קידן &middot; ניהול אדמיניסטרטיבי חכם &middot;
+        <span style="color:var(--accent)">ניהול שעובד</span>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const form = document.getElementById("guideForm");
+    const toast = document.getElementById("toast");
+
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(()=>toast.classList.remove("show"), 3200);
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+
+      if(!name || !email){
+        showToast("נא למלא שם ואימייל כדי לקבל את המדריך");
+        return;
+      }
+
+      // Basic email validation
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+        showToast("נא להזין כתובת אימייל תקינה");
+        return;
+      }
+
+      // Webhook integration:
+      // fetch("YOUR_WEBHOOK_URL", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({ name, email, phone: document.getElementById("phone").value.trim() })
+      // })
+
+      form.reset();
+      window.location.href = "guide-thank-you.html";
+    });
+  </script>
+</body>
+</html>
